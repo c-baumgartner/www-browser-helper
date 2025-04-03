@@ -7,8 +7,8 @@ import (
 )
 
 func checkCodespace() bool {
-	codespace, ok := os.LookupEnv("CODESPACE")
-	if !ok || codespace == "" {
+	codespace, ok := os.LookupEnv("CODESPACES")
+	if !ok || codespace != "true" {
 		return false
 	}
 	return true
