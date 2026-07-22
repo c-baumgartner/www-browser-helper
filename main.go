@@ -4,11 +4,25 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"runtime/debug"
 	"strings"
 )
 
-// version is set at build time via -ldflags (GoReleaser).
+// version is set at build time via -ldflags (GoReleaser). For `go install`
+// builds it stays "dev" and is resolved from the module build info instead.
 var version = "dev"
+
+// resolveVersion returns the ldflags value when set, otherwise the module
+// version recorded by `go install module@vX.Y.Z` (falls back to "dev").
+func resolveVersion() string {
+	if version != "dev" {
+		return version
+	}
+	if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Version != "" && bi.Main.Version != "(devel)" {
+		return bi.Main.Version
+	}
+	return version
+}
 
 const usageText = `www-browser-helper - open URLs from inside a GitHub Codespace
 
@@ -81,7 +95,7 @@ func main() {
 		usage(os.Stdout)
 		os.Exit(0)
 	case "-v", "--version":
-		fmt.Println(version)
+		fmt.Println(resolveVersion())
 		os.Exit(0)
 	}
 
