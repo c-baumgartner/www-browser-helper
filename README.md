@@ -33,11 +33,11 @@ contents cannot inject shell commands.
 
 Download a prebuilt `linux` binary from the
 [latest release](https://github.com/c-baumgartner/www-browser-helper/releases/latest)
-(currently [v1.0.0](https://github.com/c-baumgartner/www-browser-helper/releases/tag/v1.0.0)).
+(currently [v1.0.1](https://github.com/c-baumgartner/www-browser-helper/releases/tag/v1.0.1)).
 Pick the archive matching your architecture (`x86_64`, `arm64`, or `i386`):
 
 ```sh
-VERSION=1.0.0
+VERSION=1.0.1
 curl -sSfL -o www-browser-helper.tar.gz \
   "https://github.com/c-baumgartner/www-browser-helper/releases/download/v${VERSION}/www-browser-helper_Linux_x86_64.tar.gz"
 tar -xzf www-browser-helper.tar.gz www-browser-helper
