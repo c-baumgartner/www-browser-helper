@@ -8,6 +8,9 @@
 *.so
 *.dylib
 
+# Binary produced by `go build ./...` in the repo root
+/www-browser-helper
+
 # Test binary, built with `go test -c`
 *.test
 
@@ -23,5 +26,8 @@ go.work.sum
 
 # env file
 .env
+
+# macOS
+.DS_Store
 # Added by goreleaser init:
 dist/
