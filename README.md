@@ -50,7 +50,7 @@ Download a prebuilt `linux` binary from the
 Pick the archive matching your architecture (`x86_64`, `arm64`, or `i386`):
 
 ```sh
-VERSION=2.0.0
+VERSION=2.0.1
 curl -sSfL -o www-browser-helper.tar.gz \
   "https://github.com/c-baumgartner/www-browser-helper/releases/download/v${VERSION}/www-browser-helper_Linux_x86_64.tar.gz"
 tar -xzf www-browser-helper.tar.gz www-browser-helper
@@ -62,7 +62,7 @@ Checksums are published alongside the archives (`www-browser-helper_${VERSION}_c
 ### From source
 
 ```sh
-go install github.com/c-baumgartner/www-browser-helper@latest
+go install github.com/c-baumgartner/www-browser-helper/v2@latest
 ```
 
 Then make it discoverable as `www-browser` on your `PATH`, e.g.:
